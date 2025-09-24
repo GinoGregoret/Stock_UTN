@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+**/node_modules
+*/package-lock.json
+back/.env
+front/node_modules
+front/package-lock.json
+front/.env
+front/dist
