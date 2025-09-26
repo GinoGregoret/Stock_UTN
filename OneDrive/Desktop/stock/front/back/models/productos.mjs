@@ -1,7 +1,6 @@
 import { DataTypes, Model, Sequelize } from 'sequelize'
 import {sequelize} from '../config/db.mjs'
 
-const sequelize = new Sequelize('sqlite::memory: ')
 export class productos extends Model {}
 
 productos.init({
@@ -21,7 +20,6 @@ productos.init({
 {
     sequelize,
     modelName: 'Product',
-    tableName: 'products'
+    tableName: 'products',
 },
 )
-console.log(User === sequelize.models.Us)

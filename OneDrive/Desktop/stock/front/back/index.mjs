@@ -1,30 +1,26 @@
-import { json } from "sequelize"
-import express from 'express'
-import dotenv from 'dotenv'
+import express from "express"
+import dotenv from "dotenv"
+import { sequelize } from './config/db.mjs'
+import { ProductoList } from "./models/productoList.mjs"
+
 const app = express()
 dotenv.config()
 app.use(express.json())
-
-app.get("/",async function(req,res){
-    res.json({
-        saludo: "hola"
-    })
+app.get("/", async function(req, res) {
+ 
+  res.json(req.query)
 })
+app.post('/', async (req, res) => {
 
-app.listen(3000,()=>{
-    console.log('servidor inicial puerto 3000')
+  res.json(req)
 })
-
-app.post('/',async function(req, res){
-    res.json({
-        saludo: 'ruta post'
-    })
+app.put("/", async (req, res) => {
+  res.json("ruta put")
 })
-
-app.put("/", async(req,res)=>{
-    res.json('hola')
+app.delete("/", async (req, res) => {
+  res.json("Ruta DELTE")
 })
-
-app.delete('/', async function(){
-    res.json('ruta delete')
+app.listen(3000, () => {
+  console.log("servidor iniciado en puerto http://localhost:3000")
+  sequelize.sync()
 })
