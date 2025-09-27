@@ -7,12 +7,16 @@
     "dev": "node --watch index.mjs"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "mysql2": "^3.15.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "sequelize": "^6.37.7"
+    "react-router": "^7.9.2",
+    "sequelize": "^6.37.7",
+    "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

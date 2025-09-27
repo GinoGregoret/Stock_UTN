@@ -11,8 +11,14 @@ app.get("/", async function(req, res) {
   res.json(req.query)
 })
 app.post('/', async (req, res) => {
-
-  res.json(req)
+const body = req.body
+const product = new ProductoList({
+  name:body.name,
+  price:Number(body.price),
+  stock:Number(body.stock)
+})
+await product.save()
+  
 })
 app.put("/", async (req, res) => {
   res.json("ruta put")
