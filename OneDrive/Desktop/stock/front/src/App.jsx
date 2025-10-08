@@ -1,8 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router"
-import { Container } from "./componentes/Container"
 import { ProductoList } from "./componentes/ProductoList"
 import { ProductForm } from "./componentes/ProductForm"
-import { ProductRow } from "./componentes/ProductRow"
+import {ToastContainer} from 'react-toastify'
 
 function App() {
   return (
@@ -12,6 +11,16 @@ function App() {
         <Route path = '/product' element={<ProductForm/>}/>
         <Route path="*" element={<h2>404 elemento no encontrado</h2>}/>
       </Routes>
+
+
+      <ToastContainer
+      theme="colored"
+      
+      
+      
+      
+      
+      />
     </BrowserRouter>
   )
 }

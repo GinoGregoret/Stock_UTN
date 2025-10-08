@@ -1,11 +1,18 @@
-export const ProductRow = () =>{
-    async function handleSubmit(e){
-        e.preventdefault()
+export const ProductRow = ({data}) =>{
+    
+    async function handleDelete(id){
+        Toast.info(`${id} fue eliminado`)
     }
+
     return(
-        <form onSubmit={handleSubmit}>
-            <button className="">
-            </button>
-        </form>
+        <div className="flex gap-2 p-2 bg-green-900 text-neutral-50 justify-between mb-5">
+            <p className="flex-2">{data.name}</p>
+            <p className="flex-1">${data.price}</p>
+            <p className="flex-1">{data.stock}</p>
+            <section>
+                <button className="p-1 bg-neutral-950 text-neutral-50 rounded m-1 cursor-pointer hover:bg-red-600 shadow"
+                onClick={() => onDelete(data.name)}>Borrar</button>
+            </section>
+        </div>
     )
 }

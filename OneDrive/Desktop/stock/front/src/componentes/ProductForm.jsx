@@ -1,6 +1,6 @@
 import { Input } from './Input'
 import { useState } from 'react'
-
+import {toast} from 'react-toastify'
 export const ProductForm = () =>{
 
     const [name,setName] = useState('')
@@ -26,6 +26,17 @@ export const ProductForm = () =>{
             const req = await fetch(url,config)
             const res = await req.json()
             alert('producto cargado')
+
+
+            if(res.error){
+                toast.error(res.msg)
+                return
+            }
+                toast.success(res.msg)
+                setName('')
+                setPrice('')
+                setStock('')
+            
 
         }catch(er){
             console.log(er)
