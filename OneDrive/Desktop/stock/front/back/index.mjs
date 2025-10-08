@@ -1,3 +1,6 @@
+
+// GUIA https://expressjs.com/en/guide/routing.html
+// Importar Express
 import express from "express"
 import dotenv from "dotenv"
 import { sequelize } from './config/db.mjs'
@@ -72,7 +75,26 @@ app.put("/", async (req, res) => {
 
 // Crear Ruta DELETE para eliminar un producto
 app.delete("/", async (req, res) => {
-  res.json("Ruta DELTE")
+  // https://localhost/?id=12313
+  // Recuperamos en el backend de req.query
+  //req.query={
+  //   id:12313
+  // }
+  const query = req.query
+  try {
+    const product = await Product.findByPk(query.id)
+    await product.destroy()
+
+    res.json({
+      error: false,
+      msg: "Producto eliminado"
+    })
+  } catch {
+    res.status(500).json({
+      error: true,
+      msg: "Ocurrio un error"
+    })
+  }
 })
 
 // Iniciar servidor express
