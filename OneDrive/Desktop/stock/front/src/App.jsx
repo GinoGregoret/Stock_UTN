@@ -11,15 +11,8 @@ function App() {
         <Route path = '/product' element={<ProductForm/>}/>
         <Route path="*" element={<h2>404 elemento no encontrado</h2>}/>
       </Routes>
-
-
       <ToastContainer
       theme="colored"
-      
-      
-      
-      
-      
       />
     </BrowserRouter>
   )

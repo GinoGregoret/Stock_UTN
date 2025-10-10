@@ -1,6 +1,4 @@
 export const ProductRow = ({data}) =>{
-    
-
     return(
         <div className="flex gap-2 p-2 bg-green-900 text-neutral-50 justify-between mb-5">
             <p className="flex-2">{data.name}</p>

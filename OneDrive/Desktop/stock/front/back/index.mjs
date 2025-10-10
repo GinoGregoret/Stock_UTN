@@ -1,10 +1,9 @@
-
 // GUIA https://expressjs.com/en/guide/routing.html
 // Importar Express
 import express from "express"
 import dotenv from "dotenv"
 import { sequelize } from './config/db.mjs'
-import { Product } from "./models/products.mjs"
+import { productos } from "./models/productos.mjs"
 import cors from 'cors'
 // Crear servidor Express
 const app = express()
@@ -19,7 +18,7 @@ app.get("/", async function(req, res) {
   // pe: http://localhost:3000/?id=1
   // obtenemos {id:1}
   try {
-    const products = await Product.findAll()
+    const products = await productos.findAll()
     res.json({
       error: false,
       data: products
@@ -45,7 +44,7 @@ app.post('/', async (req, res) => {
       })
       return
     }
-    const product = new Product({
+    const product = new productos({
       name: body.name,
       price: Number(body.price),
       stock: Number(body.stock)
@@ -82,7 +81,7 @@ app.delete("/", async (req, res) => {
   // }
   const query = req.query
   try {
-    const product = await Product.findByPk(query.id)
+    const product = await productos.findByPk(query.id)
     await product.destroy()
 
     res.json({

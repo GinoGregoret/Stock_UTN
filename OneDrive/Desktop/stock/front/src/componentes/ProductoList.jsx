@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react'
 import { Container } from './Container'
 import { toast } from 'react-toastify'
@@ -49,12 +48,11 @@ export const ProductList = () => {
       toast.info('Producto eliminado...')
       location.reload()
     }catch{
-      toast.error('ocurrio un error inesperado :(')
+      toast.error('ocurrio un error inesperado...')
     }
   }
   
   return (
-
     <Container>
       {
         data.map((d) => <ProductRow key={d.id} data={d} onDelete={handleDelete} />)

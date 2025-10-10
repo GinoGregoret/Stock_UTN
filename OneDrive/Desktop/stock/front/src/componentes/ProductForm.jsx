@@ -79,7 +79,7 @@ export const ProductForm = () => {
           }}
         />
         <button
-          className="p-2 mt-5 border-[1px] bg-slate-950 text-slate-100 font-black rounded hover:bg-green-600"
+          className="p-2 mt-5 border-[1px] bg-slate-950 text-slate-100 font-black rounded hover:bg-green-600 cursor-pointer"
         >Cargar</button>
       </form>
 
